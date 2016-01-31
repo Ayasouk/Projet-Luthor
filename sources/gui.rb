@@ -63,4 +63,3 @@ Cell:
 		- getState (return Boolean)
 		- getValue (return Boolean)
 """
-
