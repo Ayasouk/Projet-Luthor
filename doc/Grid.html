@@ -85,8 +85,6 @@
     
     <li ><a href="#method-i-random">#random</a>
     
-    <li ><a href="#method-i-to_s">#to_s</a>
-    
   </ul>
 </nav>
 
@@ -97,6 +95,8 @@
   <h3 class="section-header">Pages</h3>
 
   <ul>
+  
+    <li class="file"><a href="./README_md.html">README</a>
   
     <li class="file"><a href="./doc/created_rid.html">created.rid</a>
   
@@ -233,12 +233,12 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File luthor.rb, line 78</span>
+            <pre><span class="ruby-comment"># File luthor.rb, line 69</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">x</span> = <span class="ruby-value">10</span>)
         <span class="ruby-ivar">@maxLen</span> = <span class="ruby-identifier">x</span>
-        <span class="ruby-ivar">@grid</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">x</span>){<span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">x</span>, <span class="ruby-constant">Cell</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">false</span>, <span class="ruby-keyword">false</span>))}
-        <span class="ruby-ivar">@xIndices</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">x</span>){<span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">x</span><span class="ruby-operator">/</span><span class="ruby-value">2</span>, <span class="ruby-keyword">nil</span>)}
-        <span class="ruby-ivar">@yIndices</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">x</span>){<span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">x</span><span class="ruby-operator">/</span><span class="ruby-value">2</span>, <span class="ruby-keyword">nil</span>)}
+        <span class="ruby-ivar">@grid</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">x</span>){<span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">x</span>){<span class="ruby-constant">Cell</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">false</span>, <span class="ruby-keyword">false</span>)}}
+        <span class="ruby-ivar">@xIndices</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">x</span>){<span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>}
+        <span class="ruby-ivar">@yIndices</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">x</span>){<span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>}
 <span class="ruby-keyword">end</span></pre>
           </div><!-- new-source -->
           
@@ -275,7 +275,7 @@
 
           
           <div class="method-source-code" id="changeCellState-source">
-            <pre><span class="ruby-comment"># File luthor.rb, line 87</span>
+            <pre><span class="ruby-comment"># File luthor.rb, line 78</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">changeCellState</span>(<span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
         <span class="ruby-ivar">@grid</span>[<span class="ruby-identifier">x</span>][<span class="ruby-identifier">y</span>].<span class="ruby-identifier">changeState</span>
 <span class="ruby-keyword">end</span></pre>
@@ -308,11 +308,45 @@
 
           
           <div class="method-source-code" id="evalIndices-source">
-            <pre><span class="ruby-comment"># File luthor.rb, line 122</span>
+            <pre><span class="ruby-comment"># File luthor.rb, line 114</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">evalIndices</span>()
         <span class="ruby-keyword">for</span> <span class="ruby-identifier">i</span> <span class="ruby-keyword">in</span> <span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-ivar">@maxLen</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>
+                <span class="ruby-identifier">_in</span> = <span class="ruby-keyword">false</span>
+                <span class="ruby-identifier">_nb</span> = <span class="ruby-value">0</span>
                 <span class="ruby-keyword">for</span> <span class="ruby-identifier">j</span> <span class="ruby-keyword">in</span> <span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-ivar">@maxLen</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>
+                        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@grid</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>].<span class="ruby-identifier">getValue</span> 
+                                <span class="ruby-identifier">_in</span> = <span class="ruby-keyword">true</span>
+                                <span class="ruby-identifier">_nb</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+                        <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">_in</span>
+                                <span class="ruby-ivar">@xIndices</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">push</span>(<span class="ruby-identifier">_nb</span>)
+                                <span class="ruby-identifier">_in</span> = <span class="ruby-keyword">false</span>
+                                <span class="ruby-identifier">_nb</span> = <span class="ruby-value">0</span>
+                        <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">_in</span>
+                        <span class="ruby-ivar">@xIndices</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">push</span>(<span class="ruby-identifier">_nb</span>)
+                        <span class="ruby-identifier">_in</span> = <span class="ruby-keyword">false</span>
+                        <span class="ruby-identifier">_nb</span> = <span class="ruby-value">0</span>
+                <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
 
+        <span class="ruby-keyword">for</span> <span class="ruby-identifier">j</span> <span class="ruby-keyword">in</span> <span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-ivar">@maxLen</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>
+                <span class="ruby-identifier">_in</span> = <span class="ruby-keyword">false</span>
+                <span class="ruby-identifier">_nb</span> = <span class="ruby-value">0</span>
+                <span class="ruby-keyword">for</span> <span class="ruby-identifier">i</span> <span class="ruby-keyword">in</span> <span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-ivar">@maxLen</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>
+                        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@grid</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>].<span class="ruby-identifier">getValue</span> 
+                                <span class="ruby-identifier">_in</span> = <span class="ruby-keyword">true</span>
+                                <span class="ruby-identifier">_nb</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+                        <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">_in</span>
+                                <span class="ruby-ivar">@yIndices</span>[<span class="ruby-identifier">j</span>].<span class="ruby-identifier">push</span>(<span class="ruby-identifier">_nb</span>)
+                                <span class="ruby-identifier">_in</span> = <span class="ruby-keyword">false</span>
+                                <span class="ruby-identifier">_nb</span> = <span class="ruby-value">0</span>
+                        <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">_in</span>
+                        <span class="ruby-ivar">@yIndices</span>[<span class="ruby-identifier">j</span>].<span class="ruby-identifier">push</span>(<span class="ruby-identifier">_nb</span>)
+                        <span class="ruby-identifier">_in</span> = <span class="ruby-keyword">false</span>
+                        <span class="ruby-identifier">_nb</span> = <span class="ruby-value">0</span>
                 <span class="ruby-keyword">end</span>
         <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
@@ -339,14 +373,13 @@
 
         <div class="method-description">
           
-          <p>Returns the @maxLen if needed (TODO : Turn all accessors down and create
-methods)</p>
+          <p>Returns the @maxLen if needed</p>
           
           
 
           
           <div class="method-source-code" id="getLength-source">
-            <pre><span class="ruby-comment"># File luthor.rb, line 93</span>
+            <pre><span class="ruby-comment"># File luthor.rb, line 84</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">getLength</span>()
         <span class="ruby-keyword">return</span> <span class="ruby-ivar">@maxLen</span>
 <span class="ruby-keyword">end</span></pre>
@@ -379,7 +412,7 @@ methods)</p>
 
           
           <div class="method-source-code" id="picture-source">
-            <pre><span class="ruby-comment"># File luthor.rb, line 116</span>
+            <pre><span class="ruby-comment"># File luthor.rb, line 108</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">picture</span>()
 
 <span class="ruby-keyword">end</span></pre>
@@ -412,11 +445,11 @@ methods)</p>
 
           
           <div class="method-source-code" id="random-source">
-            <pre><span class="ruby-comment"># File luthor.rb, line 99</span>
+            <pre><span class="ruby-comment"># File luthor.rb, line 90</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">random</span>()
         <span class="ruby-keyword">for</span> <span class="ruby-identifier">i</span> <span class="ruby-keyword">in</span> <span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-ivar">@maxLen</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>
                 <span class="ruby-keyword">for</span> <span class="ruby-identifier">j</span> <span class="ruby-keyword">in</span> <span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-ivar">@maxLen</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>
-                        <span class="ruby-identifier">rand_value</span> = <span class="ruby-constant">Random</span>.<span class="ruby-identifier">srand</span>
+                        <span class="ruby-identifier">rand_value</span> = <span class="ruby-constant">Random</span>.<span class="ruby-identifier">srand</span>(<span class="ruby-constant">Random</span>.<span class="ruby-identifier">new_seed</span>)
                         <span class="ruby-keyword">if</span> ( <span class="ruby-identifier">rand_value</span> <span class="ruby-operator">%</span> <span class="ruby-value">2</span>) <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
                                 <span class="ruby-identifier">value</span> = <span class="ruby-keyword">true</span>
                         <span class="ruby-keyword">else</span>
@@ -426,6 +459,7 @@ methods)</p>
                 <span class="ruby-keyword">end</span>
         <span class="ruby-keyword">end</span>
         <span class="ruby-identifier">evalIndices</span>()
+        <span class="ruby-identifier">p</span> <span class="ruby-ivar">@grid</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- random-source -->
           
@@ -435,44 +469,6 @@ methods)</p>
 
         
       </div><!-- random-method -->
-
-    
-      <div id="method-i-to_s" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">to_s</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Makes the object <code>Grid</code> printable</p>
-          
-          
-
-          
-          <div class="method-source-code" id="to_s-source">
-            <pre><span class="ruby-comment"># File luthor.rb, line 132</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
-        <span class="ruby-keyword">for</span> <span class="ruby-identifier">i</span> <span class="ruby-keyword">in</span> <span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-ivar">@maxLen</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>
-                <span class="ruby-keyword">for</span> <span class="ruby-identifier">j</span> <span class="ruby-keyword">in</span> <span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-ivar">@maxLen</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>
-                        <span class="ruby-identifier">puts</span> <span class="ruby-ivar">@grid</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>].<span class="ruby-identifier">to_s</span>
-                <span class="ruby-keyword">end</span>
-                <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\n&quot;</span>
-        <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- to_s-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- to_s-method -->
 
     
     </section><!-- public-instance-method-details -->
