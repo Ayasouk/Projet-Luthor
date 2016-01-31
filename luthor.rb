@@ -3,6 +3,24 @@ gem "rdoc"
 require "rmagick"
 require "rdoc/rdoc"
 include Magick
+
+##
+# This class is already existing but allow us the add a safe_transpose method
+class Array
+
+	##
+	# .transpose method without same length requirements
+	def safe_transpose
+		result = []
+		max_size = self.max { |a,b| a.size <=> b.size }.size
+		max_size.times do |i|
+			result[i] = Array.new(self.first.size)
+			self.each_with_index { |r,j| result[i][j] = r[i] }
+		end
+		result
+	end
+end
+
 ##
 # This class represents the complete +Game+
 class Game
@@ -43,7 +61,7 @@ class Engine
 	# Fills the current grid with random value
 	def genRandomGrid()
 		@grid.randomGrid()
-		p @grid
+		puts @grid
 	end
 
 	##
@@ -75,6 +93,11 @@ class Grid
 	end
 
 	##
+	#
+	def printIndices()
+
+	end
+	##
 	# Turns to false a true cell state and to true a false cell state
 	def changeCellState(x, y)
 		@matrix[x][y].changeState
@@ -100,8 +123,9 @@ class Grid
 			end
 		end
 		evalIndices()
-		# NB : Class is array
-		p #{@matrix}
+		# NB : Class is Array
+		p @xIndices
+		p @yIndices
 	end
 
 	##
@@ -136,25 +160,27 @@ class Grid
 			end
 			_row += 1
 		end
-
-		for j in 0..@maxLen-1
+		temp = @matrix.safe_transpose
+		_row = 0
+		temp.each do |i|
 			_in = false
 			_nb = 0
-			for i in 0..@maxLen-1
-				if @matrix[i][j].getValue 
+			i.each do |x|
+				if x.getValue
 					_in = true
 					_nb += 1
 				elsif _in
-					@yIndices[j].push(_nb)
+					@yIndices[_row].push(_nb)
 					_in = false
 					_nb = 0
 				end
 			end
 			if _in
-				@yIndices[j].push(_nb)
+				@yIndices[_row].push(_nb)
 				_in = false
 				_nb = 0
 			end
+			_row += 1
 		end
 	end
 
