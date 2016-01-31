@@ -42,13 +42,14 @@ class Engine
 	##
 	# Fills the current grid with random value
 	def genRandomGrid()
-		@grid = @grid.random()
+		@grid.randomGrid()
+		p @grid
 	end
 
 	##
 	# Fills the current grid with picture's values
 	def genPictureGrid(path)
-		@grid = @grid.picture(path)
+		@grid.picture(path)
 	end
 end
 
@@ -58,7 +59,7 @@ class Grid
 	# Debugging accessor
 	attr_accessor :maxLen #Longueur/Largeur
 	# Debugging accessor
-	attr_accessor :grid #2 listes. Voir object Cell
+	attr_accessor :matrix #2 listes. Voir object Cell
 	# Debugging accessor
 	attr_accessor :xIndices #Les indices au dessus des abscisses 
 	# Debugging accessor
@@ -68,7 +69,7 @@ class Grid
 	# Initializes +@grid+, +@xIndices+ and +@yIndices+ with 2D Array
 	def initialize(x = 10)
 		@maxLen = x
-		@grid = Array.new(x){Array.new(x){Cell.new(false, false)}}
+		@matrix = Array.new(x){Array.new(x){Cell.new(false, false)}}
 		@xIndices = Array.new(x){Array.new}
 		@yIndices = Array.new(x){Array.new}
 	end
@@ -76,7 +77,7 @@ class Grid
 	##
 	# Turns to false a true cell state and to true a false cell state
 	def changeCellState(x, y)
-		@grid[x][y].changeState
+		@matrix[x][y].changeState
 	end
 
 	##
@@ -87,20 +88,20 @@ class Grid
 
 	##
 	# Generates "randomly" the value of each grid's cell
-	def random()
-		for i in 0..@maxLen-1
-			for j in 0..@maxLen-1
+	def randomGrid()
+		@matrix.each do |j|
+			j.each do |x|
 				rand_value = Random.srand(Random.new_seed)
 				if ( rand_value % 2) == 0
-					value = true
+					x.setValue(true)
 				else
-					value = false
+					x.setValue(false)
 				end
-				@grid[i][j].setValue(value)
 			end
 		end
 		evalIndices()
-		p @grid
+		# NB : Class is array
+		p #{@matrix}
 	end
 
 	##
@@ -112,31 +113,35 @@ class Grid
 	##
 	# Fills +@xIndices+ and +@yIndices+ with right values
 	def evalIndices()
-		for i in 0..@maxLen-1
+		_row = 0
+		_in = false
+		_nb = 0
+		@matrix.each do |j|
 			_in = false
 			_nb = 0
-			for j in 0..@maxLen-1
-				if @grid[i][j].getValue 
+			j.each do |x|
+				if x.getValue
 					_in = true
 					_nb += 1
 				elsif _in
-					@xIndices[i].push(_nb)
+					@xIndices[_row].push(_nb)
 					_in = false
 					_nb = 0
 				end
 			end
 			if _in
-				@xIndices[i].push(_nb)
+				@xIndices[_row].push(_nb)
 				_in = false
 				_nb = 0
 			end
+			_row += 1
 		end
 
 		for j in 0..@maxLen-1
 			_in = false
 			_nb = 0
 			for i in 0..@maxLen-1
-				if @grid[i][j].getValue 
+				if @matrix[i][j].getValue 
 					_in = true
 					_nb += 1
 				elsif _in
@@ -151,6 +156,17 @@ class Grid
 				_nb = 0
 			end
 		end
+	end
+
+	def to_s
+		ret = ""
+		@matrix.each do |j|
+			j.each do |cell|
+				ret += cell.getValue
+			end
+			ret += "\n"
+		end
+		return ret
 	end
 end
 
@@ -174,9 +190,9 @@ class Cell
 	# Makes the +Cell+ object printable
 	def to_s
 		if @value
-			return "[X]"
+			"[X]"
 		else
-			return "[ ]"
+			"[ ]"
 		end
 	end
 
@@ -215,7 +231,6 @@ class Cell
 	end
 end
 
-# Main program
 
 game = Game.new
 game.start()
