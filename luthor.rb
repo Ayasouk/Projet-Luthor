@@ -162,12 +162,24 @@ class Grid
 		ret = ""
 		@matrix.each do |j|
 			j.each do |cell|
-				ret += cell.getValue
+				ret += cell.to_s
 			end
 			ret += "\n"
 		end
 		return ret
 	end
+
+	def inspect
+		ret = ""
+		@matrix.each do |j|
+			j.each do |cell|
+				ret += cell.to_s
+			end
+			ret += "\n"
+		end
+		return ret
+	end
+
 end
 
 
@@ -189,6 +201,14 @@ class Cell
 	##
 	# Makes the +Cell+ object printable
 	def to_s
+		if @value
+			"[X]"
+		else
+			"[ ]"
+		end
+	end
+
+	def inspect
 		if @value
 			"[X]"
 		else
