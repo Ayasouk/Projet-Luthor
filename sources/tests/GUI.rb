@@ -1,4 +1,6 @@
 require "gtk2"
+require "rmagick"
+include Magick
 
 Gtk.init
 
