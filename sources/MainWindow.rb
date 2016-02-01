@@ -4,8 +4,14 @@ include Gtk
 
 load "Game.rb"
 
+##
+# Représente la fenêtre principale de l'application
+#
 class MainWindow < Window
 
+	##
+	# Initialise la fenêtre et affiche le menu d'acceuil.
+	#
 	def initialize()
 		super()
 		self.window_position = Window::POS_CENTER
@@ -17,12 +23,19 @@ class MainWindow < Window
 
 	private
 
+	##
+	# Vide la fenêtre.
+	#
 	def clear_window()
 		for child in self.children
 			self.remove(child)
 		end
+		return self
 	end
 
+	##
+	# Affiche le menu d'acceuil.
+	#
 	def main_menu()
 		clear_window()
 
@@ -34,6 +47,9 @@ class MainWindow < Window
 		self.show_all()
 	end
 
+	##
+	# Affiche la partie.
+	#
 	def grid()
 		clear_window()
 
@@ -50,7 +66,6 @@ class MainWindow < Window
 				table.attach_defaults(button, cellIndex, cellIndex+1, rowIndex, rowIndex+1)
 			}
 		}
-		
 
 		self.show_all()
 	end
