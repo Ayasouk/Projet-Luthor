@@ -55,8 +55,6 @@ class Grid
 		end
 		evalIndices()
 		# NB : Class is Array
-		p @xIndices
-		p @yIndices
 	end
 
 	##

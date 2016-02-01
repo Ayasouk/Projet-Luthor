@@ -1,3 +1,5 @@
+require "gtk2"
+
 Gtk.init
 
 image2 = ImageList.new("pichu.png")

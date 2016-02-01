@@ -23,7 +23,6 @@ class Engine
 	# Fills the current grid with random value
 	def genRandomGrid()
 		@grid.randomGrid()
-		puts @grid
 	end
 
 	##

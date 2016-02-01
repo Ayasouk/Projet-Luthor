@@ -1,6 +1,4 @@
 
-require "rdoc/rdoc"
-load "Game.rb"
+load "Interface.rb"
 
-game = Game.new
-game.start()
+Interface.start()
