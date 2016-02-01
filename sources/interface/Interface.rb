@@ -1,7 +1,8 @@
 
 require "gtk2"
 
-load "MainWindow.rb"
+load "interface/HomeScreen.rb"
+load "interface/MainWindow.rb"
 
 ##
 # Classe purement fonctionnelle servant uniquement à lancer l'interface.
@@ -13,6 +14,7 @@ class Interface
 	def self.start()
 		Gtk.init()
 		window = MainWindow.new()
+		window.setScreen(HomeScreen.new(window))
 		Gtk.main()
 		return nil
 	end
