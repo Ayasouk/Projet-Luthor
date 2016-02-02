@@ -2,6 +2,8 @@
 require "gtk2"
 include Gtk
 
+load "Game.rb"
+
 class GameScreen < Table
 
 	##

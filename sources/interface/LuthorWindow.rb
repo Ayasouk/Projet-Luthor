@@ -2,12 +2,12 @@
 require "gtk2"
 include Gtk
 
-load "Game.rb"
+load "interface/LuthorMenu.rb"
 
 ##
 # Représente la fenêtre principale de l'application
 #
-class MainWindow < Window
+class LuthorWindow < Window
 
 	##
 	# Initialise la fenêtre avec aucun écran.
@@ -17,29 +17,20 @@ class MainWindow < Window
 		self.window_position = Window::POS_CENTER
 		self.set_title("Luthor Picross")
 		self.signal_connect("destroy"){Gtk.main_quit()}
-
 		@box = VBox.new()
 		self.add(@box)
 
-		@bar = MenuBar.new()
-		@box.add(@bar)
-		fileMenu = Menu.new()
-		fileMenuButton = MenuItem.new("Fichier")
-		@bar.append(fileMenuButton)
-		fileMenuButton.set_submenu(fileMenu)
-		exitButton = MenuItem.new("Fermer")
-		fileMenu.append(exitButton)
-		exitButton.signal_connect("activate"){Gtk.main_quit()}
+		@menu = LuthorMenu.new()
+		@box.pack_start(@menu, false, true, 0)
 	end
 
 	##
 	# Change l'écran de la fenêtre.
 	#
 	def setScreen(screen)
-		for child in @box
-			@box.remove(child) if child != @bar
-		end
-		@box.add(screen)
+		@box.remove(@screen) if @screen != nil
+		@screen = screen
+		@box.add(@screen)
 		self.show_all()
 		return self
 	end

@@ -2,7 +2,7 @@
 require "gtk2"
 
 load "interface/HomeScreen.rb"
-load "interface/MainWindow.rb"
+load "interface/LuthorWindow.rb"
 
 ##
 # Classe purement fonctionnelle servant uniquement à lancer l'interface.
@@ -13,7 +13,7 @@ class Interface
 
 	def self.start()
 		Gtk.init()
-		window = MainWindow.new()
+		window = LuthorWindow.new()
 		window.setScreen(HomeScreen.new(window))
 		Gtk.main()
 		return nil
