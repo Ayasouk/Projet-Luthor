@@ -7,7 +7,7 @@ end
 desc "Génération de la documentation"
 task :docgen do
 	puts "Test de la documentation..."
-	sh "rdoc --exclude=sources/tests --visibility=nodoc --root=sources -C"
+	sh "rdoc --exclude=sources/tests --visibility=nodoc --root=sources -C --quiet"
 	puts "Suppression de l'ancienne documentation..."
 	sh "rm -Rf doc"
 	puts "Génération de la nouvelle documentation..."
