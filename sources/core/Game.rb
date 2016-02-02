@@ -1,5 +1,6 @@
+# encoding: utf-8
 
-load "Engine.rb"
+load "core/Engine.rb"
 
 ##
 # This class represents the complete +Game+

@@ -1,6 +1,7 @@
+# encoding: utf-8
 
-load "Array.rb"
-load "Cell.rb"
+load "core/Array.rb"
+load "core/Cell.rb"
 
 ##
 # This class represents a +Grid+

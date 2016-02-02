@@ -1,5 +1,6 @@
+# encoding: utf-8
 
-load "Grid.rb"
+load "core/Grid.rb"
 
 ##
 # This class represents the +Controller+ from +MVC+

@@ -1,8 +1,9 @@
+# encoding: utf-8
 
 require "gtk2"
 include Gtk
 
-load "interface/EcranPartie.rb"
+load "gui/EcranPartie.rb"
 
 ##
 # Écran d'acceuil

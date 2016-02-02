@@ -1,8 +1,9 @@
+# encoding: utf-8
 
 require "gtk2"
 include Gtk
 
-load "interface/MenuLuthor.rb"
+load "gui/MenuLuthor.rb"
 
 ##
 # Représente la fenêtre principale de l'application

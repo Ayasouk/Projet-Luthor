@@ -1,8 +1,9 @@
+# encoding: utf-8
 
 require "gtk2"
 include Gtk
 
-load "Game.rb"
+load "core/Game.rb"
 
 ##
 # Écran de la partie en cours.

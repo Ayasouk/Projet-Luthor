@@ -1,3 +1,4 @@
+# encoding: utf-8
 
 ##
 # This class is already existing but allow us the add a safe_transpose method
