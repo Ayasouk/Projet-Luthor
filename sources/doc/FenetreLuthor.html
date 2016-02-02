@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 
-<title>class LuthorWindow - RDoc Documentation</title>
+<title>class FenetreLuthor - RDoc Documentation</title>
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -72,7 +72,7 @@
     
     <li class="calls-super" ><a href="#method-c-new">::new</a>
     
-    <li ><a href="#method-i-setScreen">#setScreen</a>
+    <li ><a href="#method-i-ecran-3D">#ecran=</a>
     
   </ul>
 </div>
@@ -80,9 +80,9 @@
   </div>
 </nav>
 
-<main role="main" aria-labelledby="class-LuthorWindow">
-  <h1 id="class-LuthorWindow" class="class">
-    class LuthorWindow
+<main role="main" aria-labelledby="class-FenetreLuthor">
+  <h1 id="class-FenetreLuthor" class="class">
+    class FenetreLuthor
   </h1>
 
   <section class="description">
@@ -134,7 +134,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File interface/LuthorWindow.rb, line 13</span>
+            <pre><span class="ruby-comment"># File interface/FenetreLuthor.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>()
     <span class="ruby-keyword">super</span>()
     <span class="ruby-keyword">self</span>.<span class="ruby-identifier">window_position</span> = <span class="ruby-constant">Window</span><span class="ruby-operator">::</span><span class="ruby-constant">POS_CENTER</span>
@@ -143,7 +143,7 @@
     <span class="ruby-ivar">@box</span> = <span class="ruby-constant">VBox</span>.<span class="ruby-identifier">new</span>()
     <span class="ruby-keyword">self</span>.<span class="ruby-identifier">add</span>(<span class="ruby-ivar">@box</span>)
 
-    <span class="ruby-ivar">@menu</span> = <span class="ruby-constant">LuthorMenu</span>.<span class="ruby-identifier">new</span>()
+    <span class="ruby-ivar">@menu</span> = <span class="ruby-constant">MenuLuthor</span>.<span class="ruby-identifier">new</span>()
     <span class="ruby-ivar">@box</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-ivar">@menu</span>, <span class="ruby-keyword">false</span>, <span class="ruby-keyword">true</span>, <span class="ruby-value">0</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -164,11 +164,11 @@
        </header>
 
     
-      <div id="method-i-setScreen" class="method-detail ">
+      <div id="method-i-ecran-3D" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">setScreen</span><span
-            class="method-args">(screen)</span>
+          <span class="method-name">ecran=</span><span
+            class="method-args">(ecran)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -182,12 +182,12 @@
           
 
           
-          <div class="method-source-code" id="setScreen-source">
-            <pre><span class="ruby-comment"># File interface/LuthorWindow.rb, line 28</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">setScreen</span>(<span class="ruby-identifier">screen</span>)
-    <span class="ruby-ivar">@box</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-ivar">@screen</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@screen</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>
-    <span class="ruby-ivar">@screen</span> = <span class="ruby-identifier">screen</span>
-    <span class="ruby-ivar">@box</span>.<span class="ruby-identifier">add</span>(<span class="ruby-ivar">@screen</span>)
+          <div class="method-source-code" id="ecran-3D-source">
+            <pre><span class="ruby-comment"># File interface/FenetreLuthor.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ecran=</span>(<span class="ruby-identifier">ecran</span>)
+    <span class="ruby-ivar">@box</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-ivar">@ecran</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ecran</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>
+    <span class="ruby-ivar">@ecran</span> = <span class="ruby-identifier">ecran</span>
+    <span class="ruby-ivar">@box</span>.<span class="ruby-identifier">add</span>(<span class="ruby-ivar">@ecran</span>)
     <span class="ruby-keyword">self</span>.<span class="ruby-identifier">show_all</span>()
     <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
 <span class="ruby-keyword">end</span></pre>

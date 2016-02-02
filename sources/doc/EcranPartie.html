@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 
-<title>class HomeScreen - RDoc Documentation</title>
+<title>class EcranPartie - RDoc Documentation</title>
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -58,7 +58,7 @@
   <h3>Parent</h3>
 
   
-  <p class="link">VBox
+  <p class="link">Table
   
 </div>
 
@@ -78,14 +78,14 @@
   </div>
 </nav>
 
-<main role="main" aria-labelledby="class-HomeScreen">
-  <h1 id="class-HomeScreen" class="class">
-    class HomeScreen
+<main role="main" aria-labelledby="class-EcranPartie">
+  <h1 id="class-EcranPartie" class="class">
+    class EcranPartie
   </h1>
 
   <section class="description">
     
-<p>Écran d&#39;acceuil</p>
+<p>Écran de la partie en cours.</p>
 
   </section>
 
@@ -112,7 +112,7 @@
         
         <div class="method-heading">
           <span class="method-name">new</span><span
-            class="method-args">(window)</span>
+            class="method-args">(fenetre)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -121,7 +121,7 @@
 
         <div class="method-description">
           
-          <p>Initialise l&#39;affichage du menu d&#39;acceuil.</p>
+          <p>Initialise l&#39;affichage de la partie.</p>
           
           
             <div class="method-calls-super">
@@ -132,14 +132,19 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File interface/HomeScreen.rb, line 13</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">window</span>)
-    <span class="ruby-keyword">super</span>()
-    <span class="ruby-ivar">@window</span> = <span class="ruby-identifier">window</span>
-    <span class="ruby-identifier">startButton</span> = <span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>()
-    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">startButton</span>)
-    <span class="ruby-identifier">startButton</span>.<span class="ruby-identifier">set_label</span>(<span class="ruby-string">&quot;Lancer&quot;</span>)
-    <span class="ruby-identifier">startButton</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&quot;clicked&quot;</span>){<span class="ruby-ivar">@window</span>.<span class="ruby-identifier">setScreen</span>(<span class="ruby-constant">GameScreen</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">window</span>))}
+            <pre><span class="ruby-comment"># File interface/EcranPartie.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">fenetre</span>)
+    <span class="ruby-comment"># Code trop dépendant de la structure interne de la partie génération</span>
+    <span class="ruby-identifier">partie</span> = <span class="ruby-constant">Game</span>.<span class="ruby-identifier">new</span>()
+    <span class="ruby-identifier">partie</span>.<span class="ruby-identifier">start</span>()
+    <span class="ruby-identifier">grille</span> = <span class="ruby-identifier">partie</span>.<span class="ruby-identifier">engine</span>.<span class="ruby-identifier">grid</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">super</span>(<span class="ruby-identifier">grille</span>.<span class="ruby-identifier">maxLen</span>, <span class="ruby-identifier">grille</span>.<span class="ruby-identifier">maxLen</span>)
+    <span class="ruby-identifier">grille</span>.<span class="ruby-identifier">matrix</span>.<span class="ruby-identifier">each_with_index</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">ligne</span>, <span class="ruby-identifier">ligneIndex</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">ligne</span>.<span class="ruby-identifier">each_with_index</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">cas</span>, <span class="ruby-identifier">caseIndex</span><span class="ruby-operator">|</span>
+            <span class="ruby-keyword">self</span>.<span class="ruby-identifier">attach_defaults</span>(<span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">cas</span>.<span class="ruby-identifier">value</span> <span class="ruby-operator">?</span> <span class="ruby-string">&quot;X&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;&quot;</span>), <span class="ruby-identifier">caseIndex</span>, <span class="ruby-identifier">caseIndex</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">ligneIndex</span>, <span class="ruby-identifier">ligneIndex</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>)
+        }
+    }
 <span class="ruby-keyword">end</span></pre>
           </div>
           

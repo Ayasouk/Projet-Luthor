@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 
-<title>class LuthorMenu - RDoc Documentation</title>
+<title>class MenuLuthor - RDoc Documentation</title>
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -78,9 +78,9 @@
   </div>
 </nav>
 
-<main role="main" aria-labelledby="class-LuthorMenu">
-  <h1 id="class-LuthorMenu" class="class">
-    class LuthorMenu
+<main role="main" aria-labelledby="class-MenuLuthor">
+  <h1 id="class-MenuLuthor" class="class">
+    class MenuLuthor
   </h1>
 
   <section class="description">
@@ -132,24 +132,24 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File interface/LuthorMenu.rb, line 11</span>
+            <pre><span class="ruby-comment"># File interface/MenuLuthor.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>()
     <span class="ruby-keyword">super</span>()
 
-    <span class="ruby-identifier">fileMenuButton</span> = <span class="ruby-constant">MenuItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Fichier&quot;</span>)
-    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">append</span>(<span class="ruby-identifier">fileMenuButton</span>)
-    <span class="ruby-identifier">fileMenu</span> = <span class="ruby-constant">Menu</span>.<span class="ruby-identifier">new</span>()
-    <span class="ruby-identifier">fileMenuButton</span>.<span class="ruby-identifier">set_submenu</span>(<span class="ruby-identifier">fileMenu</span>)
-    <span class="ruby-identifier">exitButton</span> = <span class="ruby-constant">MenuItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Fermer&quot;</span>)
-    <span class="ruby-identifier">fileMenu</span>.<span class="ruby-identifier">append</span>(<span class="ruby-identifier">exitButton</span>)
-    <span class="ruby-identifier">exitButton</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&quot;activate&quot;</span>){<span class="ruby-constant">Gtk</span>.<span class="ruby-identifier">main_quit</span>()}
+    <span class="ruby-identifier">menuFichier</span> = <span class="ruby-constant">MenuItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Fichier&quot;</span>)
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">append</span>(<span class="ruby-identifier">menuFichier</span>)
+    <span class="ruby-identifier">menuDeroulantFichier</span> = <span class="ruby-constant">Menu</span>.<span class="ruby-identifier">new</span>()
+    <span class="ruby-identifier">menuFichier</span>.<span class="ruby-identifier">set_submenu</span>(<span class="ruby-identifier">menuDeroulantFichier</span>)
+    <span class="ruby-identifier">boutonFermer</span> = <span class="ruby-constant">MenuItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Fermer&quot;</span>)
+    <span class="ruby-identifier">menuDeroulantFichier</span>.<span class="ruby-identifier">append</span>(<span class="ruby-identifier">boutonFermer</span>)
+    <span class="ruby-identifier">boutonFermer</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&quot;activate&quot;</span>){<span class="ruby-constant">Gtk</span>.<span class="ruby-identifier">main_quit</span>()}
 
-    <span class="ruby-identifier">otherMenuButton</span> = <span class="ruby-constant">MenuItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Autres&quot;</span>)
-    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">append</span>(<span class="ruby-identifier">otherMenuButton</span>)
-    <span class="ruby-identifier">otherMenu</span> = <span class="ruby-constant">Menu</span>.<span class="ruby-identifier">new</span>()
-    <span class="ruby-identifier">otherMenuButton</span>.<span class="ruby-identifier">set_submenu</span>(<span class="ruby-identifier">otherMenu</span>)
-    <span class="ruby-identifier">aboutButton</span> = <span class="ruby-constant">MenuItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;À propos&quot;</span>)
-    <span class="ruby-identifier">otherMenu</span>.<span class="ruby-identifier">append</span>(<span class="ruby-identifier">aboutButton</span>)
+    <span class="ruby-identifier">menuAutres</span> = <span class="ruby-constant">MenuItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Autres&quot;</span>)
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">append</span>(<span class="ruby-identifier">menuAutres</span>)
+    <span class="ruby-identifier">menuDeroulantAutres</span> = <span class="ruby-constant">Menu</span>.<span class="ruby-identifier">new</span>()
+    <span class="ruby-identifier">menuAutres</span>.<span class="ruby-identifier">set_submenu</span>(<span class="ruby-identifier">menuDeroulantAutres</span>)
+    <span class="ruby-identifier">boutonPropos</span> = <span class="ruby-constant">MenuItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;À propos&quot;</span>)
+    <span class="ruby-identifier">menuDeroulantAutres</span>.<span class="ruby-identifier">append</span>(<span class="ruby-identifier">boutonPropos</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           

@@ -2,11 +2,11 @@
 require "gtk2"
 include Gtk
 
-load "interface/LuthorMenu.rb"
+load "interface/MenuLuthor.rb"
 
 ##
 # Représente la fenêtre principale de l'application
-class LuthorWindow < Window
+class FenetreLuthor < Window
 
 	##
 	# Initialise la fenêtre avec aucun écran.
@@ -18,17 +18,17 @@ class LuthorWindow < Window
 		@box = VBox.new()
 		self.add(@box)
 
-		@menu = LuthorMenu.new()
+		@menu = MenuLuthor.new()
 		@box.pack_start(@menu, false, true, 0)
 	end
 
 	##
 	# Change l'écran de la fenêtre.
 	#
-	def setScreen(screen)
-		@box.remove(@screen) if @screen != nil
-		@screen = screen
-		@box.add(@screen)
+	def ecran=(ecran)
+		@box.remove(@ecran) if @ecran != nil
+		@ecran = ecran
+		@box.add(@ecran)
 		self.show_all()
 		return self
 	end
