@@ -5,7 +5,7 @@ class Cell
 	# Debugging accessor
 	attr_accessor :state #Etat graphique (GUI)
 	# Debugging accessor
-	attr_accessor :value #Valeur réelle (MOTEUR)
+	attr_accessor :value #Valeur rÃ©elle (MOTEUR)
 
 	##
 	# Initializes the +@state+ and +@value+ with parameters
@@ -17,14 +17,6 @@ class Cell
 	##
 	# Makes the +Cell+ object printable
 	def to_s
-		if @value
-			"[X]"
-		else
-			"[ ]"
-		end
-	end
-
-	def inspect
 		if @value
 			"[X]"
 		else

@@ -5,13 +5,11 @@ include Gtk
 load "interface/LuthorMenu.rb"
 
 ##
-# Représente la fenêtre principale de l'application
-#
+# ReprÃ©sente la fenÃªtre principale de l'application
 class LuthorWindow < Window
 
 	##
-	# Initialise la fenêtre avec aucun écran.
-	#
+	# Initialise la fenÃªtre avec aucun Ã©cran.
 	def initialize()
 		super()
 		self.window_position = Window::POS_CENTER
@@ -25,7 +23,7 @@ class LuthorWindow < Window
 	end
 
 	##
-	# Change l'écran de la fenêtre.
+	# Change l'Ã©cran de la fenÃªtre.
 	#
 	def setScreen(screen)
 		@box.remove(@screen) if @screen != nil

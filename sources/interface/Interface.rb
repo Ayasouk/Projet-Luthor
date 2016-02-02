@@ -6,11 +6,12 @@ load "interface/LuthorWindow.rb"
 
 ##
 # Classe purement fonctionnelle servant uniquement à lancer l'interface.
-#
 class Interface
 
 	private_class_method :new
 
+	##
+	# Lance l'interface.
 	def self.start()
 		Gtk.init()
 		window = LuthorWindow.new()

@@ -12,7 +12,7 @@ class Grid
 	# Debugging accessor
 	attr_accessor :xIndices #Les indices au dessus des abscisses 
 	# Debugging accessor
-	attr_accessor :yIndices #Les indices à gauche des ordonnées
+	attr_accessor :yIndices #Les indices Ã  gauche des ordonnÃ©es
 
 	##
 	# Initializes +@grid+, +@xIndices+ and +@yIndices+ with 2D Array
@@ -23,11 +23,6 @@ class Grid
 		@yIndices = Array.new(x){Array.new}
 	end
 
-	##
-	#
-	def printIndices()
-
-	end
 	##
 	# Turns to false a true cell state and to true a false cell state
 	def changeCellState(x, y)
@@ -113,6 +108,8 @@ class Grid
 		end
 	end
 
+	##
+	# Affiche la grille.
 	def to_s
 		ret = ""
 		@matrix.each do |j|
@@ -123,16 +120,4 @@ class Grid
 		end
 		return ret
 	end
-
-	def inspect
-		ret = ""
-		@matrix.each do |j|
-			j.each do |cell|
-				ret += cell.to_s
-			end
-			ret += "\n"
-		end
-		return ret
-	end
-
 end

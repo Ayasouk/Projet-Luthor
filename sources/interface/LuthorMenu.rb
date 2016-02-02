@@ -2,8 +2,12 @@
 require "gtk2"
 include Gtk
 
+##
+# Menu de la fenêtre de l'application.
 class LuthorMenu < MenuBar
 
+	##
+	# Initialise le menu.
 	def initialize()
 		super()
 
@@ -19,7 +23,7 @@ class LuthorMenu < MenuBar
 		self.append(otherMenuButton)
 		otherMenu = Menu.new()
 		otherMenuButton.set_submenu(otherMenu)
-		aboutButton = MenuItem.new("\u{C0} propos")
+		aboutButton = MenuItem.new("À propos")
 		otherMenu.append(aboutButton)
 	end
 end

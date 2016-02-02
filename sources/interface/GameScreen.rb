@@ -4,13 +4,14 @@ include Gtk
 
 load "Game.rb"
 
+##
+# Ã‰cran de la partie en cours.
 class GameScreen < Table
 
 	##
 	# Initialise l'affichage de la partie.
-	#
 	def initialize(window)
-		# Code trop dépendant de la structure interne de la partie génération
+		# Code trop dÃ©pendant de la structure interne de la partie gÃ©nÃ©ration
 		game = Game.new()
 		game.start()
 		grid = game.engine.grid

@@ -4,11 +4,12 @@ include Gtk
 
 load "interface/GameScreen.rb"
 
+##
+# Écran d'acceuil
 class HomeScreen < VBox
 
 	##
 	# Initialise l'affichage du menu d'acceuil.
-	#
 	def initialize(window)
 		super()
 		@window = window

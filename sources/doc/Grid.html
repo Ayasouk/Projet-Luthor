@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Grid - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-changeCellState">#changeCellState</a>
+    
+    <li ><a href="#method-i-evalIndices">#evalIndices</a>
+    
+    <li ><a href="#method-i-getLength">#getLength</a>
+    
+    <li ><a href="#method-i-picture">#picture</a>
+    
+    <li ><a href="#method-i-randomGrid">#randomGrid</a>
+    
+    <li ><a href="#method-i-to_s">#to_s</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Grid">
+  <h1 id="class-Grid" class="class">
+    class Grid
+  </h1>
+
+  <section class="description">
+    
+<p>This class represents a <code>Grid</code></p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-matrix" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">matrix</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Debugging accessor</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-maxLen" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">maxLen</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Debugging accessor</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-xIndices" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">xIndices</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Debugging accessor</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-yIndices" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">yIndices</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Debugging accessor</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(x = 10)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Initializes +@grid+, +@xIndices+ and +@yIndices+ with 2D <a
+href="Array.html">Array</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File Grid.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">x</span> = <span class="ruby-value">10</span>)
+    <span class="ruby-ivar">@maxLen</span> = <span class="ruby-identifier">x</span>
+    <span class="ruby-ivar">@matrix</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">x</span>){<span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">x</span>){<span class="ruby-constant">Cell</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">false</span>, <span class="ruby-keyword">false</span>)}}
+    <span class="ruby-ivar">@xIndices</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">x</span>){<span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>}
+    <span class="ruby-ivar">@yIndices</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">x</span>){<span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-changeCellState" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">changeCellState</span><span
+            class="method-args">(x, y)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Turns to false a true cell state and to true a false cell state</p>
+          
+          
+
+          
+          <div class="method-source-code" id="changeCellState-source">
+            <pre><span class="ruby-comment"># File Grid.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">changeCellState</span>(<span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+    <span class="ruby-ivar">@matrix</span>[<span class="ruby-identifier">x</span>][<span class="ruby-identifier">y</span>].<span class="ruby-identifier">changeState</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-evalIndices" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">evalIndices</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fills +@xIndices+ and +@yIndices+ with right values</p>
+          
+          
+
+          
+          <div class="method-source-code" id="evalIndices-source">
+            <pre><span class="ruby-comment"># File Grid.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">evalIndices</span>()
+    <span class="ruby-identifier">_row</span> = <span class="ruby-value">0</span>
+    <span class="ruby-identifier">_in</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-identifier">_nb</span> = <span class="ruby-value">0</span>
+    <span class="ruby-ivar">@matrix</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">_in</span> = <span class="ruby-keyword">false</span>
+        <span class="ruby-identifier">_nb</span> = <span class="ruby-value">0</span>
+        <span class="ruby-identifier">j</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">getValue</span>
+                <span class="ruby-identifier">_in</span> = <span class="ruby-keyword">true</span>
+                <span class="ruby-identifier">_nb</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+            <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">_in</span>
+                <span class="ruby-ivar">@xIndices</span>[<span class="ruby-identifier">_row</span>].<span class="ruby-identifier">push</span>(<span class="ruby-identifier">_nb</span>)
+                <span class="ruby-identifier">_in</span> = <span class="ruby-keyword">false</span>
+                <span class="ruby-identifier">_nb</span> = <span class="ruby-value">0</span>
+            <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">_in</span>
+            <span class="ruby-ivar">@xIndices</span>[<span class="ruby-identifier">_row</span>].<span class="ruby-identifier">push</span>(<span class="ruby-identifier">_nb</span>)
+            <span class="ruby-identifier">_in</span> = <span class="ruby-keyword">false</span>
+            <span class="ruby-identifier">_nb</span> = <span class="ruby-value">0</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">_row</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">temp</span> = <span class="ruby-ivar">@matrix</span>.<span class="ruby-identifier">safe_transpose</span>
+    <span class="ruby-identifier">_row</span> = <span class="ruby-value">0</span>
+    <span class="ruby-identifier">temp</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">_in</span> = <span class="ruby-keyword">false</span>
+        <span class="ruby-identifier">_nb</span> = <span class="ruby-value">0</span>
+        <span class="ruby-identifier">i</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">getValue</span>
+                <span class="ruby-identifier">_in</span> = <span class="ruby-keyword">true</span>
+                <span class="ruby-identifier">_nb</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+            <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">_in</span>
+                <span class="ruby-ivar">@yIndices</span>[<span class="ruby-identifier">_row</span>].<span class="ruby-identifier">push</span>(<span class="ruby-identifier">_nb</span>)
+                <span class="ruby-identifier">_in</span> = <span class="ruby-keyword">false</span>
+                <span class="ruby-identifier">_nb</span> = <span class="ruby-value">0</span>
+            <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">_in</span>
+            <span class="ruby-ivar">@yIndices</span>[<span class="ruby-identifier">_row</span>].<span class="ruby-identifier">push</span>(<span class="ruby-identifier">_nb</span>)
+            <span class="ruby-identifier">_in</span> = <span class="ruby-keyword">false</span>
+            <span class="ruby-identifier">_nb</span> = <span class="ruby-value">0</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">_row</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-getLength" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">getLength</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the @maxLen if needed</p>
+          
+          
+
+          
+          <div class="method-source-code" id="getLength-source">
+            <pre><span class="ruby-comment"># File Grid.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">getLength</span>()
+    <span class="ruby-keyword">return</span> <span class="ruby-ivar">@maxLen</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-picture" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">picture</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>TODO : Generates a grid from a picture</p>
+          
+          
+
+          
+          <div class="method-source-code" id="picture-source">
+            <pre><span class="ruby-comment"># File Grid.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">picture</span>()
+
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-randomGrid" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">randomGrid</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Generates “randomly” the value of each grid&#39;s cell</p>
+          
+          
+
+          
+          <div class="method-source-code" id="randomGrid-source">
+            <pre><span class="ruby-comment"># File Grid.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">randomGrid</span>()
+    <span class="ruby-ivar">@matrix</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">j</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">rand_value</span> = <span class="ruby-constant">Random</span>.<span class="ruby-identifier">srand</span>(<span class="ruby-constant">Random</span>.<span class="ruby-identifier">new_seed</span>)
+            <span class="ruby-keyword">if</span> ( <span class="ruby-identifier">rand_value</span> <span class="ruby-operator">%</span> <span class="ruby-value">2</span>) <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+                <span class="ruby-identifier">x</span>.<span class="ruby-identifier">setValue</span>(<span class="ruby-keyword">true</span>)
+            <span class="ruby-keyword">else</span>
+                <span class="ruby-identifier">x</span>.<span class="ruby-identifier">setValue</span>(<span class="ruby-keyword">false</span>)
+            <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">evalIndices</span>()
+    <span class="ruby-comment"># NB : Class is Array</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_s</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Affiche la grille.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre><span class="ruby-comment"># File Grid.rb, line 113</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
+    <span class="ruby-identifier">ret</span> = <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-ivar">@matrix</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">j</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">cell</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">ret</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">to_s</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">ret</span> <span class="ruby-operator">+=</span> <span class="ruby-string">&quot;\n&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">ret</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
