@@ -43,3 +43,4 @@ Le rakefile va générer la documentation en vérifiant que le code est bien doc
 - [Le groupe Facebook](https://www.facebook.com/groups/1502097356762650/)
 - [Le Google Drive](https://drive.google.com/drive/folders/0B-TbdcUPBFu7cTNxM1pMaTl4elU)
 - [Le Trello](https://trello.com/luthorteam)
+- [Stock de grilles pour Picross](http://apps.keeky.net/pokemon/picross/)
